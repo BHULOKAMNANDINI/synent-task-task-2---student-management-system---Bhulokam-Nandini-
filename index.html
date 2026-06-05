@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Student Management System</h2>
+
+        <input type="text" id="studentId" placeholder="Enter Student ID">
+        <input type="text" id="studentName" placeholder="Enter Student Name">
+        <input type="number" id="studentAge" placeholder="Enter Age">
+
+        <br>
+
+        <button onclick="addStudent()">Add Student</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+
+            <tbody id="studentTable">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function addStudent() {
+
+            let id = document.getElementById("studentId").value;
+            let name = document.getElementById("studentName").value;
+            let age = document.getElementById("studentAge").value;
+
+            if (id === "" || name === "" || age === "") {
+                alert("Please fill all fields");
+                return;
+            }
+
+            let table = document.getElementById("studentTable");
+
+            let row = table.insertRow();
+
+            row.insertCell(0).innerHTML = id;
+            row.insertCell(1).innerHTML = name;
+            row.insertCell(2).innerHTML = age;
+
+            document.getElementById("studentId").value = "";
+            document.getElementById("studentName").value = "";
+            document.getElementById("studentAge").value = "";
+        }
+    </script>
+
+</body>
+</html>
